@@ -1,0 +1,28 @@
+name: Self Hosted Workflow
+
+# Control when the workflow will run
+on:
+  #Trigger the workflow on push and pull request events but only for the "main" branch
+  push: 
+    branches: {"main"}
+  pull_request: 
+    branches: {"main"}
+
+  # Allow you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+ build:
+   runs-on: self-hosted
+   # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+   steps: 
+     - uses: actions/checkout@v4
+     # Running a single command using the runner shell
+     - name: Run a one-line script
+       run: echo Hello, Learning Github Actions!
+
+    # Running a single command using the runner shell
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
