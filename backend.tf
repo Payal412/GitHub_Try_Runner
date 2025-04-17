@@ -1,6 +1,5 @@
-terrafrom{
+terraform {
   backend "local" {
-    bucket  = "your-bucket-name"
-    prefix  = "terrafrom/state"
+    path = "terraform.tfstate"
   }
 }
