@@ -1,6 +1,6 @@
 terrafrom{
-  backend "gcs" {
-    bucket  = "gh-demo-tf-state"
+  backend "local" {
+    bucket  = "your-bucket-name"
     prefix  = "terrafrom/state"
   }
 }
