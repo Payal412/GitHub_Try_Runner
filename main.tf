@@ -1,7 +1,16 @@
-resource "google_storage_bucket" "auto-expire" {
-  name          = "no-public-access-bucket"
-  location      = "US"
-  project       = "tt-dev-001"
-  force_destroy = true
-  public_access_prevention = "enforced"
+terraform {
+  required_providers {
+    local = {
+      source  = "hashicorp/local"
+      version = "~> 2.1"
+    }
+  }
 }
+
+provider "local" {}
+
+resource "local_file" "example" {
+  content  = "Hello, Payal! This is from Terraform."
+  filename = "${path.module}/hello.txt"
+}
+
